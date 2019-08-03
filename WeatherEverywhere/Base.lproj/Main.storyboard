@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wCP-TH-nKb">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherEverywhere" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rle-DB-4YD">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rle-DB-4YD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EfM-jA-iCu"/>
+                            <constraint firstItem="Rle-DB-4YD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nVn-mb-t9r"/>
+                            <constraint firstItem="Rle-DB-4YD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="w9x-nB-hTx"/>
+                            <constraint firstItem="Rle-DB-4YD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y1z-l7-ozX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="weatherMap" destination="Rle-DB-4YD" id="NGv-Q3-J98"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Launchscreen View Controller-->
+        <scene sceneID="J9p-lN-dkC">
+            <objects>
+                <viewController id="wCP-TH-nKb" customClass="LaunchscreenViewController" customModule="WeatherEverywhere" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qAB-wp-aiD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud2" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-nd-K50">
+                                <rect key="frame" x="16" y="167.5" width="288" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="233" id="KmF-dE-lmO"/>
+                                    <constraint firstAttribute="width" constant="288" id="yKp-Y6-ZAn"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-PE-BfA">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="3RB-4q-f2w"/>
+                                    <constraint firstAttribute="width" constant="200" id="eSN-Hi-5TR"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud1" translatesAutoresizingMaskIntoConstraints="NO" id="LBf-qf-Fea">
+                                <rect key="frame" x="129" y="217.5" width="175" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="oWe-5D-uLv"/>
+                                    <constraint firstAttribute="width" constant="175" id="wAW-a3-fy0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeatherEverywhere" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0q-OZ-QjF">
+                                <rect key="frame" x="16" y="101.5" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="V6L-oz-hNv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="L0t-PE-BfA" firstAttribute="centerX" secondItem="qAB-wp-aiD" secondAttribute="centerX" id="0am-uf-TpG"/>
+                            <constraint firstItem="oq3-OP-qqx" firstAttribute="trailing" secondItem="B0q-OZ-QjF" secondAttribute="trailing" constant="16" id="7Jg-AA-bHp"/>
+                            <constraint firstItem="LBf-qf-Fea" firstAttribute="centerY" secondItem="qAB-wp-aiD" secondAttribute="centerY" id="7Og-f1-Sfl"/>
+                            <constraint firstItem="LBf-qf-Fea" firstAttribute="leading" secondItem="L0t-PE-BfA" secondAttribute="trailing" constant="-131" id="HlP-oZ-hO9"/>
+                            <constraint firstItem="0ah-nd-K50" firstAttribute="centerY" secondItem="qAB-wp-aiD" secondAttribute="centerY" id="Nv1-n0-2zD"/>
+                            <constraint firstItem="B0q-OZ-QjF" firstAttribute="leading" secondItem="oq3-OP-qqx" secondAttribute="leading" constant="16" id="Xux-uX-38t"/>
+                            <constraint firstItem="0ah-nd-K50" firstAttribute="top" secondItem="B0q-OZ-QjF" secondAttribute="bottom" constant="26" id="XzU-D5-Xk8"/>
+                            <constraint firstItem="0ah-nd-K50" firstAttribute="leading" secondItem="L0t-PE-BfA" secondAttribute="trailing" constant="-244" id="aZY-vk-S40"/>
+                            <constraint firstItem="L0t-PE-BfA" firstAttribute="centerY" secondItem="qAB-wp-aiD" secondAttribute="centerY" id="dbt-mj-RRS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oq3-OP-qqx"/>
+                    </view>
+                    <connections>
+                        <outlet property="container" destination="qAB-wp-aiD" id="hF3-OW-dqR"/>
+                        <outlet property="firstCloud" destination="LBf-qf-Fea" id="2P8-Jz-eL6"/>
+                        <outlet property="secondCloud" destination="0ah-nd-K50" id="WSe-Tg-j7w"/>
+                        <outlet property="sun" destination="L0t-PE-BfA" id="YzZ-4d-7E8"/>
+                        <outlet property="titleLabel" destination="B0q-OZ-QjF" id="pQq-r8-lrD"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToMap" id="W1Q-gq-duY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1q4-kd-743" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-727.5" y="137.32394366197184"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cloud1" width="512" height="376"/>
+        <image name="cloud2" width="1280" height="717"/>
+        <image name="sun" width="1018" height="1024"/>
+    </resources>
+</document>
