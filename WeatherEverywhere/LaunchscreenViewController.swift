@@ -70,6 +70,9 @@ class LaunchscreenViewController: UIViewController {
                 self.secondCloud.center.x += self.view.bounds.width
             }) { (true) in
                 self.performSegue(withIdentifier: "goToMap", sender: nil)
+                UIView.animate(withDuration: 0.1) {
+                    self.container.center.y -= self.view.bounds.height
+                }
             }
         }
     }

@@ -21,23 +21,58 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rle-DB-4YD">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOE-KT-oOx">
+                                <rect key="frame" x="-70" y="50" width="70" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ICS-cg-l9L"/>
+                                    <constraint firstAttribute="width" constant="70" id="TUG-4m-Smf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="   X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MOT-Ah-0I6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNc-wb-oyn">
+                                <rect key="frame" x="320" y="508" width="110" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lPJ-cu-keK"/>
+                                    <constraint firstAttribute="width" constant="110" id="pRS-oO-4fk"/>
+                                </constraints>
+                                <state key="normal" title="Details">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="details:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBV-9M-ewr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rle-DB-4YD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EfM-jA-iCu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hNc-wb-oyn" secondAttribute="bottom" constant="30" id="EnF-Sl-i3v"/>
+                            <constraint firstAttribute="trailing" secondItem="hNc-wb-oyn" secondAttribute="trailing" constant="-110" id="SSc-fS-gHP"/>
+                            <constraint firstItem="WOE-KT-oOx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="TLe-fy-KhI"/>
                             <constraint firstItem="Rle-DB-4YD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nVn-mb-t9r"/>
+                            <constraint firstItem="WOE-KT-oOx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-70" id="ndN-Hh-skZ"/>
                             <constraint firstItem="Rle-DB-4YD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="w9x-nB-hTx"/>
                             <constraint firstItem="Rle-DB-4YD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y1z-l7-ozX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="WOE-KT-oOx" id="PBS-x9-4k1"/>
+                        <outlet property="detailsBtn" destination="hNc-wb-oyn" id="7qL-9I-IlQ"/>
                         <outlet property="weatherMap" destination="Rle-DB-4YD" id="NGv-Q3-J98"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="136.875" y="137.32394366197184"/>
         </scene>
         <!--Launchscreen View Controller-->
         <scene sceneID="J9p-lN-dkC">
@@ -55,7 +90,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-PE-BfA">
-                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <rect key="frame" x="60" y="184" width="200.00000000000023" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="3RB-4q-f2w"/>
                                     <constraint firstAttribute="width" constant="200" id="eSN-Hi-5TR"/>
