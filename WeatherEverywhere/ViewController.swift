@@ -30,8 +30,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cancelBtn.center.x -= cancelBtn.frame.width
-        detailsBtn.center.x += detailsBtn.frame.width
+        weatherMap.removeAnnotation(marker)
     }
     
     @IBAction func cancel(_ sender: UIButton) {
@@ -40,7 +39,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func details(_ sender: UIButton) {
         if (latitude != 0.0) && (longitude != 0.0) {
-            getWeatherInfo(lat: latitude, lon: longitude)
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc : DetailViewController = storyBoard.instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
+            let vm = OpenWeatherViewModel(lat: latitude, lon: longitude)
+            vc.viewModel = vm
+            clearMarker()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -95,39 +99,39 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         isMarkerDropped = false
     }
     
-    private func getWeatherInfo(lat: Double, lon: Double){
-        
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/find?lat=\(lat)&lon=\(lon)&APPID=dba52f70b805d00e270ab2a941f232fc") else {
-            return
-        }
-        let session = URLSession(configuration: config)
-        var urlRequest = URLRequest(url: url,
-                                    cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                    timeoutInterval: 10.0 * 1000)
-        urlRequest.httpMethod = "GET"
-        let task = session.dataTask(with: url) { data, response, error in
-            guard error == nil else {
-                print ("error: \(error!)")
-                return
-            }
-            guard let content = data else {
-                print("No data")
-                return
-            }
-            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                print("Not containing JSON")
-                return
-            }
-            do {
-                let responseModel = try self.jsonDecoder.decode(Response.self, from: data!)
-                print(responseModel)
-            } catch {
-                print("model not worked")
-            }
-            print("gotten json response dictionary is \n \(json)")
-            
-        }
-        task.resume()
-    }
+//    private func getWeatherFromWeatherbit(lat: Double, lon: Double){
+//        
+//        guard let url = URL(string: "https://api.weatherbit.io/v2.0/current?lat=\(lat)&lon=\(lon)&KEY=d5bf1dbb909e46e7b6faae1411ede85f") else {
+//            return
+//        }
+//        let session = URLSession(configuration: config)
+//        var urlRequest = URLRequest(url: url,
+//                                    cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+//                                    timeoutInterval: 10.0 * 1000)
+//        urlRequest.httpMethod = "GET"
+//        let task = session.dataTask(with: url) { data, response, error in
+//            guard error == nil else {
+//                print ("error: \(error!)")
+//                return
+//            }
+//            guard let content = data else {
+//                print("No data")
+//                return
+//            }
+//            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+//                print("Not containing JSON")
+//                return
+//            }
+//            do {
+//                let responseModel = try self.jsonDecoder.decode(OWResponse.self, from: data!)
+//                print(responseModel)
+//            } catch {
+//                print("model not worked")
+//            }
+//            print("gotten json response dictionary is \n \(json)")
+//            
+//        }
+//        task.resume()
+//    }
 }
 

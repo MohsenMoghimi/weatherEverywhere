@@ -13,16 +13,16 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherEverywhere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherEverywhere" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rle-DB-4YD">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOE-KT-oOx">
-                                <rect key="frame" x="-70" y="50" width="70" height="40"/>
+                                <rect key="frame" x="-70" y="94" width="70" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ICS-cg-l9L"/>
@@ -64,6 +64,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Xgt-nf-DKv"/>
                     <connections>
                         <outlet property="cancelBtn" destination="WOE-KT-oOx" id="PBS-x9-4k1"/>
                         <outlet property="detailsBtn" destination="hNc-wb-oyn" id="7qL-9I-IlQ"/>
@@ -72,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.875" y="137.32394366197184"/>
+            <point key="canvasLocation" x="1134.375" y="137.32394366197184"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="fcV-aE-NQS">
@@ -82,22 +83,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4v9-Le-20y" customClass="EarthIndicator" customModule="WeatherEverywhere" customModuleProvider="target">
-                                <rect key="frame" x="125" y="181" width="92" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bNv-vw-Ees" customClass="ExpandableTableView" customModule="ExpandableCell">
+                                <rect key="frame" x="4" y="20" width="312" height="548"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" id="7AY-yA-RO3">
+                                    <rect key="frame" x="0.0" y="0.0" width="312" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </activityIndicatorView>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bNv-vw-Ees" firstAttribute="leading" secondItem="0o9-qg-6u8" secondAttribute="leading" constant="4" id="4gu-cn-9U6"/>
+                            <constraint firstAttribute="bottom" secondItem="bNv-vw-Ees" secondAttribute="bottom" id="Q3J-7H-vEb"/>
+                            <constraint firstItem="bNv-vw-Ees" firstAttribute="trailing" secondItem="0o9-qg-6u8" secondAttribute="trailing" constant="-4" id="YrO-Dh-riR"/>
+                            <constraint firstItem="bNv-vw-Ees" firstAttribute="top" secondItem="0o9-qg-6u8" secondAttribute="top" id="f3b-Ly-dbx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0o9-qg-6u8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sG8-VH-aC1"/>
                     <connections>
-                        <outlet property="indicatorViewl" destination="4v9-Le-20y" id="ipS-5I-uIU"/>
+                        <outlet property="tableView" destination="bNv-vw-Ees" id="Wvr-rN-LiZ"/>
+                        <outlet property="tableviewIndicator" destination="7AY-yA-RO3" id="7eH-iz-WGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUr-vA-6of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952.5" y="136.26760563380282"/>
+            <point key="canvasLocation" x="2063" y="137"/>
         </scene>
         <!--Launchscreen View Controller-->
         <scene sceneID="J9p-lN-dkC">
@@ -158,12 +171,30 @@
                         <outlet property="secondCloud" destination="0ah-nd-K50" id="WSe-Tg-j7w"/>
                         <outlet property="sun" destination="L0t-PE-BfA" id="YzZ-4d-7E8"/>
                         <outlet property="titleLabel" destination="B0q-OZ-QjF" id="pQq-r8-lrD"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToMap" id="W1Q-gq-duY"/>
+                        <segue destination="1rU-ZY-rr9" kind="show" identifier="goToMap" id="W1Q-gq-duY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1q4-kd-743" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-727.5" y="137.32394366197184"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uTB-d2-SwZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1rU-ZY-rr9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xqM-M4-4hW">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IoB-71-eGX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y3U-S9-qp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.875" y="137.32394366197184"/>
         </scene>
     </scenes>
     <resources>

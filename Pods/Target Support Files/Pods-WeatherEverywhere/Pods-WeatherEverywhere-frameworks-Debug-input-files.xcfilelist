@@ -1,2 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-WeatherEverywhere/Pods-WeatherEverywhere-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/ExpandableCell/ExpandableCell.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework

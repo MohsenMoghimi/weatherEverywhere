@@ -7,5 +7,9 @@ target 'WeatherEverywhere' do
 
   # Pods for WeatherEverywhere
   pod 'Alamofire', '~> 5.0.0-beta.5'
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+  pod 'SwiftyGif'
+  pod 'ExpandableCell'
   
 end
